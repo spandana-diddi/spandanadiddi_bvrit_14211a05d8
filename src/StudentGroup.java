@@ -26,23 +26,39 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
-		return null;
+		return students;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
-		// Add your implementation here
+		// Add your implementation herefor(int i=0;i<students.length();i++){
+			if(students[i]==NULL)
+				throw new IllegalArgumentException("student cannot be empty");
+			else{
+				students[i].id=this.id; 
+				students[i].fullName=this.fullName;
+				students[i].birthDate=this.birthDate;
+				students[i].avgMark=this.avgMark;
+			}
+		}
 	}
 
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
+		if(index<0 || index>students.length()) {
+			throw new IllegalArgumentException("Out of limits");
+		}
 		return null;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
+		if(student==NULL) 
+			throw new IllegalArgumentException("Null can't be assigned");
+		else
+			students[index]=student;
 	}
 
 	@Override
@@ -93,6 +109,13 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		for(int i=0;i<students.length();i++)
+			for(int j=0;j<students.length();j++)
+				if(a[j]>a[j+1]){
+					int t=students[j];
+					students[j]=students[j+1];
+					students[j+1]=t;
+				}
 	}
 
 	@Override
